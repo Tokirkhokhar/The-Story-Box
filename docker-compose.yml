@@ -11,7 +11,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: thestorybox_db
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
@@ -29,9 +29,10 @@ services:
       - /app/node_modules
       - /app/backend/node_modules
     environment:
+      CI: "true"
       NODE_ENV: development
       DATABASE_HOST: db
-      DATABASE_PORT: 5432
+      DATABASE_PORT: 5433
       DATABASE_USER: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_NAME: thestorybox_db
@@ -52,6 +53,7 @@ services:
       - /app/node_modules
       - /app/frontend/node_modules
     environment:
+      CI: "true"
       VITE_API_URL: http://localhost:3000
     depends_on:
       - backend
