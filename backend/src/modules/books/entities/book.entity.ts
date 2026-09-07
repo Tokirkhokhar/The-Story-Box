@@ -1,15 +1,9 @@
-import {
-  Column,
-  CreateDateColumn,
-  Entity,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
-} from 'typeorm';
+import { Column, Entity } from 'typeorm';
+import { BaseEntity } from '../../../database/base-entity';
 
 @Entity('books')
-export class Book {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+export class Book extends BaseEntity {
+  protected idPrefix = 'book';
 
   @Column()
   title: string;
@@ -19,10 +13,4 @@ export class Book {
 
   @Column({ nullable: true })
   description?: string;
-
-  @CreateDateColumn()
-  createdAt: Date;
-
-  @UpdateDateColumn()
-  updatedAt: Date;
 }
