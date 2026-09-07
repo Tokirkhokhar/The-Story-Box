@@ -1,4 +1,7 @@
 {
+  "dependencies": {
+    "@nestjs/mapped-types": "*"
+  },
   "name": "thestorybox-monorepo",
   "private": true,
   "scripts": {
