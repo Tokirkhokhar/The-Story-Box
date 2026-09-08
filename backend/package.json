@@ -25,6 +25,7 @@
     "@nestjs/core": "^11.0.1",
     "@nestjs/mapped-types": "^2.1.1",
     "@nestjs/platform-express": "^11.0.1",
+    "@nestjs/swagger": "^11.4.7",
     "@nestjs/typeorm": "^11.0.3",
     "@thi.ng/ksuid": "^3.2.127",
     "class-transformer": "^0.5.1",

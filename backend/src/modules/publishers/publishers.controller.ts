@@ -1,8 +1,10 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { CreatePublisherDto } from './dto/create-publisher.dto';
 import { UpdatePublisherDto } from './dto/update-publisher.dto';
 import { PublishersService } from './publishers.service';
 
+@ApiTags('Publishers')
 @Controller('publishers')
 export class PublishersController {
   constructor(private readonly publishersService: PublishersService) {}

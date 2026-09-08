@@ -1,8 +1,10 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { BookAuthorsService } from './book-authors.service';
 import { CreateBookAuthorDto } from './dto/create-book-author.dto';
 import { UpdateBookAuthorDto } from './dto/update-book-author.dto';
 
+@ApiTags('Book Authors')
 @Controller('book-authors')
 export class BookAuthorsController {
   constructor(private readonly bookAuthorsService: BookAuthorsService) {}
