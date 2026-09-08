@@ -1,8 +1,7 @@
+import { ULID } from '@thi.ng/ksuid';
 import { DataSource, QueryRunner } from 'typeorm';
 
 export const generateKSUID = async (prefix: string): Promise<string> => {
-  const ksuidModule = await import('@thi.ng/ksuid');
-  const { ULID } = ksuidModule;
   const ksuid = new ULID();
   return `${prefix}_${ksuid.next()}`;
 };

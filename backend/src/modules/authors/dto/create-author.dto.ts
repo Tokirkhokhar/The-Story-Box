@@ -3,70 +3,64 @@ import {
   IsBoolean,
   IsDate,
   IsEnum,
-  IsInt,
   IsNotEmpty,
   IsObject,
   IsOptional,
   IsString,
   MaxLength,
 } from 'class-validator';
-import { ImportStatus, PublishingStatus } from '../../../enums';
+import { PublishingStatus } from '../../../enums';
 
-export class CreateBookDto {
+export class CreateAuthorDto {
   @IsString()
   @IsNotEmpty()
-  @MaxLength(500)
-  title: string;
-
-  @IsString()
-  @IsOptional()
-  @MaxLength(500)
-  subtitle?: string;
+  @MaxLength(255)
+  fullName: string;
 
   @IsString()
   @IsNotEmpty()
-  @MaxLength(600)
+  @MaxLength(300)
   slug: string;
 
   @IsString()
   @IsOptional()
-  shortDescription?: string;
-
-  @IsString()
-  @IsOptional()
-  description?: string;
-
-  @IsString()
-  @IsOptional()
-  @MaxLength(20)
-  isbn10?: string;
-
-  @IsString()
-  @IsOptional()
-  @MaxLength(20)
-  isbn13?: string;
-
-  @IsString()
-  @IsOptional()
-  @MaxLength(100)
-  edition?: string;
+  biography?: string;
 
   @IsDate()
   @Type(() => Date)
   @IsOptional()
-  publicationDate?: Date;
+  birthDate?: Date;
 
-  @IsInt()
+  @IsDate()
+  @Type(() => Date)
   @IsOptional()
-  pages?: number;
-
-  @IsString()
-  @IsOptional()
-  publisherId?: string;
+  deathDate?: Date;
 
   @IsString()
   @IsOptional()
-  languageId?: string;
+  profileImage?: string;
+
+  @IsString()
+  @IsOptional()
+  website?: string;
+
+  @IsString()
+  @IsOptional()
+  @MaxLength(100)
+  nationality?: string;
+
+  @IsString()
+  @IsOptional()
+  @MaxLength(50)
+  gender?: string;
+
+  @IsString()
+  @IsOptional()
+  awards?: string;
+
+  @IsObject()
+  @IsOptional()
+  socialLinks?: Record<string, unknown>;
 
   @IsString()
   @IsOptional()
@@ -76,7 +70,7 @@ export class CreateBookDto {
   @IsString()
   @IsOptional()
   @MaxLength(255)
-  sourceBookId?: string;
+  sourceAuthorId?: string;
 
   @IsString()
   @IsOptional()
@@ -86,10 +80,6 @@ export class CreateBookDto {
   @Type(() => Date)
   @IsOptional()
   importedAt?: Date;
-
-  @IsEnum(ImportStatus)
-  @IsOptional()
-  importStatus?: ImportStatus;
 
   @IsEnum(PublishingStatus)
   @IsOptional()

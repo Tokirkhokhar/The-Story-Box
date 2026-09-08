@@ -10,27 +10,18 @@ import {
   IsString,
   MaxLength,
 } from 'class-validator';
-import { ImportStatus, PublishingStatus } from '../../../enums';
+import { PublishingStatus } from '../../../enums';
 
-export class CreateBookDto {
+export class CreatePublisherDto {
   @IsString()
   @IsNotEmpty()
-  @MaxLength(500)
-  title: string;
-
-  @IsString()
-  @IsOptional()
-  @MaxLength(500)
-  subtitle?: string;
+  @MaxLength(255)
+  name: string;
 
   @IsString()
   @IsNotEmpty()
-  @MaxLength(600)
+  @MaxLength(300)
   slug: string;
-
-  @IsString()
-  @IsOptional()
-  shortDescription?: string;
 
   @IsString()
   @IsOptional()
@@ -38,35 +29,39 @@ export class CreateBookDto {
 
   @IsString()
   @IsOptional()
-  @MaxLength(20)
-  isbn10?: string;
+  logo?: string;
 
   @IsString()
   @IsOptional()
-  @MaxLength(20)
-  isbn13?: string;
+  website?: string;
+
+  @IsString()
+  @IsOptional()
+  @MaxLength(255)
+  email?: string;
+
+  @IsString()
+  @IsOptional()
+  @MaxLength(50)
+  phone?: string;
+
+  @IsString()
+  @IsOptional()
+  address?: string;
 
   @IsString()
   @IsOptional()
   @MaxLength(100)
-  edition?: string;
-
-  @IsDate()
-  @Type(() => Date)
-  @IsOptional()
-  publicationDate?: Date;
+  country?: string;
 
   @IsInt()
   @IsOptional()
-  pages?: number;
+  foundedYear?: number;
 
   @IsString()
   @IsOptional()
-  publisherId?: string;
-
-  @IsString()
-  @IsOptional()
-  languageId?: string;
+  @MaxLength(30)
+  publisherType?: string;
 
   @IsString()
   @IsOptional()
@@ -76,7 +71,7 @@ export class CreateBookDto {
   @IsString()
   @IsOptional()
   @MaxLength(255)
-  sourceBookId?: string;
+  sourcePublisherId?: string;
 
   @IsString()
   @IsOptional()
@@ -86,10 +81,6 @@ export class CreateBookDto {
   @Type(() => Date)
   @IsOptional()
   importedAt?: Date;
-
-  @IsEnum(ImportStatus)
-  @IsOptional()
-  importStatus?: ImportStatus;
 
   @IsEnum(PublishingStatus)
   @IsOptional()

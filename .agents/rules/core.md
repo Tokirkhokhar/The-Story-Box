@@ -13,6 +13,7 @@ Use this table to find the right guideline file for your task.
 | Backend route handlers, DAL, services      | `guidelines/backend.md`         |
 | Project scope.                             | See `docs/product-scope.md`     |
 | Database design                            | See `docs/database-design.md`   |
+| Writing tests (client or server)           | `testing/basics.md`             |
 
 ## Universal Rules (always apply)
 
