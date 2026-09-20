@@ -1,12 +1,14 @@
-import { ValidationPipe } from '@nestjs/common';
+import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import { appConfig } from './config/app.config';
 
 async function bootstrap() {
+  const logger = new Logger('Bootstrap');
   const app = await NestFactory.create(AppModule);
 
+  logger.log(`Allowed CORS origins: ${JSON.stringify(appConfig.allowedOrigins)}`);
   app.enableCors({
     origin: appConfig.allowedOrigins
   });

@@ -19,7 +19,7 @@ function App() {
     try {
       const baseUrl = import.meta.env?.VITE_API_URL ?? 'http://localhost:3000';
       const response = await fetch(`${baseUrl}/health`);
-      
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -82,7 +82,7 @@ function App() {
           </div>
 
           <pre className="json-view">
-{JSON.stringify(healthData, null, 2)}
+            {JSON.stringify(healthData, null, 2)}
           </pre>
         </div>
       )}
@@ -97,7 +97,7 @@ function App() {
           </div>
 
           <pre className="json-view">
-{JSON.stringify({ status: 'error', message: error, database: 'unreachable' }, null, 2)}
+            {JSON.stringify({ status: 'error', message: error, database: 'unreachable' }, null, 2)}
           </pre>
         </div>
       )}
